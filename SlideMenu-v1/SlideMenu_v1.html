@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Side Simple Registration/Login Form</title>
+    <meta name="author" content="Renee Suman">
+    <meta name="author" content="PikkexDG">
+    <script src='../jquery-1.8.3.js'></script>
+    <style type="text/css">
+            /* ############### TOP NAV ############### */
+
+        body{background: rgba(0, 0, 0, 0.81);}
+
+        #nav {}
+
+        #topNav {
+            width: 181px;
+            margin: auto;
+        }
+
+        #topNav input[type="text"],#topNav input[type="password"] {
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #999;
+            box-shadow: 1px 0px 5px #636363;
+            width: 147px;
+            margin: 4px 0px;
+        }
+
+        .hReg {
+            padding: 4px;
+            margin: 3px 0;
+            border-radius: 6px;
+            width: 180px;
+            height: 30px;
+        }
+
+        .hLogin {
+            padding: 4px;
+            margin: 3px 0;
+            border-radius: 6px;
+            width: 180px;
+            height: 30px;
+        }
+
+        #regForm,#loginForm {
+            background: rgba(0, 0, 0, 0.22);
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        #regForm input[name="Reg"]{
+            background: url("img/NewUser_OFF.png") no-repeat;
+            padding: 5px 36px;
+            border: 0;
+            margin: 3px;
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            -o-transition: all 1s ease;
+        }
+
+        #regForm input[name="Reg"]:hover{
+            background: url("img/NewUser_ON.png") no-repeat;
+            margin: 3px;
+            padding: 5px 36px;
+            border: 0;
+        }
+
+        #loginForm input[name="Login"]{
+            background: url("img/LoginSubmit_OFF.png") no-repeat;
+            margin: 3px;
+            padding: 5px 36px;
+            border: 0;
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            -o-transition: all 1s ease;
+        }
+
+        #loginForm input[name="Login"]:hover{
+            background: url("img/LoginSubmit_ON.png") no-repeat;
+            margin: 3px;
+            padding: 5px 36px;
+            border: 0;
+        }
+
+            /* ############### TOP NAV ############### */
+    </style>
+</head>
+<body>
+<script>
+    $(document).ready(function(){
+        $('div[id=hLogin]').show();
+        $('div[id=hReg]').show();
+
+        $("div[class=hReg]").css("background","url('img/newUsermenuTab.png') no-repeat");
+        $("div[class=hLogin]").css("background","url('img/LoginmenuTab.png') no-repeat");
+
+        $('div[id=loginForm]').hide();
+        $('div[id=regForm]').hide();
+
+        $('div[class=hLogin]').click(function() {
+            $('div[id=loginForm]').slideToggle("slow");
+            $('div[id=regForm]').slideUp("slow");
+        });
+
+        $('div[class=hReg]').click(function() {
+            $('div[id=regForm]').slideToggle("slow");
+            $('div[id=loginForm]').slideUp("slow");
+        });
+
+        $("div[class=hReg]").toggle(function(){
+                    $("div[class=hReg]").css("background","url('img/newUsermenuTab_hover.png') no-repeat")},
+                function(){
+                    $("div[class=hReg]").css("background","url('img/newUsermenuTab.png') no-repeat");
+                });
+
+        $("div[class=hLogin]").toggle(function(){
+                    $("div[class=hLogin]").css("background","url('img/LoginmenuTab_hover.png') no-repeat")},
+                function(){
+                    $("div[class=hLogin]").css("background","url('img/LoginmenuTab.png') no-repeat");
+                });
+
+    });
+</script>
+
+<div id='topNav'>
+
+    <div class='hReg'></div>
+    <div id='regForm'>
+        <form method='POST' action='processpage'>
+            <div><input placeholder='Username' type='text' maxlength='20' name='username'></div>
+            <div><input placeholder='Password' type='password' maxlength='20' name='password'></div>
+            <div><input placeholder='Email' autocomplete='off' type='text' maxlength='80' name='email'></div>
+
+            <div><input type='submit' name='Reg' value=''></div>
+        </form>
+    </div>
+
+    <div class='hLogin'></div>
+    <div id='loginForm'>
+        <form method='POST' action='processpage'>
+            <div><input placeholder='Username' type='text' maxlength='20' name='username'></div>
+            <div><input placeholder='Password' type='password' maxlength='20' name='password'></div>
+            <div><input type='submit' name='Login' value=''></div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
